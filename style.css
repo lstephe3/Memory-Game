@@ -1,0 +1,63 @@
+.card-container {
+  display: grid;
+  /* grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 120px 120px 120px 20px;
+  justify-content: center;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  perspective: 1000px; /* For 3D flip effect */
+}
+
+.card {
+  position: relative;
+  max-width: 120px;
+  max-height: 120px;
+  border: 2px solid darkolivegreen;
+  border-radius: 8px;
+  transition: transform 0.8s; /* Smooth flip animation */
+  transform-style: preserve-3d; /* Enable 3D transformations */
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex; /* Center content using flexbox */
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-front {
+  background-color: #fff;
+}
+
+.card-back {
+  background-color: #eee;
+  transform: rotateY(180deg);
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.card-back h2 {
+  color: #333;
+}
+
+/* No need for this rule anymore */
+/* .card-container > .card {
+  
+} */
